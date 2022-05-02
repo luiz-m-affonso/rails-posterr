@@ -16,11 +16,7 @@
 #  index_posts_on_user_id  (user_id)
 #
 FactoryBot.define do
-  factory :repost do
-    title { "MyString" }
-    description { "MyString" }
-    text { "MyString" }
-    type { "" }
-    references { "" }
+  factory :quote_post do
+    
   end
 end

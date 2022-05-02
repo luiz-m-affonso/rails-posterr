@@ -15,12 +15,8 @@
 #
 #  index_posts_on_user_id  (user_id)
 #
-FactoryBot.define do
-  factory :repost do
-    title { "MyString" }
-    description { "MyString" }
-    text { "MyString" }
-    type { "" }
-    references { "" }
-  end
+require 'rails_helper'
+
+RSpec.describe QuotePost, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
