@@ -56,10 +56,10 @@ jobs:
         run: |
           cp .github/test_db/config/database.yml config/database.yml
           bundle exec rails db:create db:migrate
-      - name: Check for untracked changes in schema.rb
-        uses: ./.github/actions/check_untracked_changes
-        with:
-          path: "./db/schema.rb"
+      # - name: Check for untracked changes in schema.rb
+      #   uses: ./.github/actions/check_untracked_changes
+      #   with:
+      #     path: "./db/schema.rb"
       - name: I18n Health
         run: bundle exec i18n-tasks health
       - name: Run Code Analysis
