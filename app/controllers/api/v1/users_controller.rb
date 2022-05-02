@@ -10,6 +10,18 @@ module Api
         render :show
       end
 
+      def follow
+        @user = User.find(params[:id])
+        current_user.follow!(@user)
+        redirect_back(fallback_location: user_path(@user))
+      end
+
+      def unfollow
+        @user = User.find(params[:id])
+        current_user.unfollow!(@user)
+        redirect_back(fallback_location: user_path(@user))
+      end
+
       private
 
       def auth_user
