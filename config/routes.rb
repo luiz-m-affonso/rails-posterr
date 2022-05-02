@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do
       get :status, to: 'api#status'
 
-      get :home, to: 'api#index'
+      get :homepage, to: 'api#index'
 
       resources :posts
 

@@ -19,7 +19,6 @@
 
 ### Posterr is a social media platform, where you can create posts, follow other people, and interact with them.
 
-
 -----------------------
 ## Requirements
 
