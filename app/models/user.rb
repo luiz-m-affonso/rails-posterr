@@ -21,8 +21,8 @@
 #  provider               :string           default("email"), not null
 #  uid                    :string           default(""), not null
 #  tokens                 :json
-#  followers              :string
-#  following              :string
+#  followees_count        :integer          default(0)
+#  followers_count        :integer          default(0)
 #
 # Indexes
 #
