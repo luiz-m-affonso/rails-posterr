@@ -44,7 +44,11 @@ class User < ApplicationRecord
   validates :uid, uniqueness: { scope: :provider }
   validates :username, length: { maximum: 14 }, format: { with: /\A[a-zA-Z0-9_]+\z/ }, presence: true
 
-  has_many :posts, dependent: :destroy
+  has_many :posts, dependent: :destroy do
+    def today
+      where(created_at: Time.zone.now.beginning_of_day..Time.zone.now)
+    end
+  end
 
   before_validation :init_uid
 
