@@ -38,6 +38,9 @@ class User < ApplicationRecord
          :recoverable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
 
+  acts_as_follower
+  acts_as_followable
+
   validates :uid, uniqueness: { scope: :provider }
   validates :username, length: { maximum: 14 }, format: { with: /\A[a-zA-Z0-9_]+\z/ }, presence: true
 
