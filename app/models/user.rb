@@ -39,7 +39,7 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   validates :uid, uniqueness: { scope: :provider }
-  validates :username, length: { maximum: 14 }
+  validates :username, length: { maximum: 14 }, format: { with: /\A[a-zA-Z0-9_]+\z/ }
 
   before_validation :init_uid
 
