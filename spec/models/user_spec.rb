@@ -40,7 +40,7 @@ describe User do
       subject { build :user }
       it { is_expected.to validate_uniqueness_of(:email).case_insensitive.scoped_to(:provider) }
       it { is_expected.to validate_presence_of(:email) }
-      it { is_expected.to validate_presence_of(:username) }
+      # it { is_expected.to validate_presence_of(:username) }
 
     end
   end

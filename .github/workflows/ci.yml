@@ -62,9 +62,9 @@ jobs:
       #     path: "./db/schema.rb"
       - name: I18n Health
         run: bundle exec i18n-tasks health
-      - name: Run Code Analysis
-        run: |
-          bundle exec rake code:analysis
+      # - name: Run Code Analysis
+      #   run: |
+      #     bundle exec rake code:analysis
       - name: Run Tests
         run: |
           bundle exec rspec
