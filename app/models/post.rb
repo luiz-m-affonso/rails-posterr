@@ -17,4 +17,5 @@
 #
 class Post < ApplicationRecord
   belongs_to :user
+  validates :text, presence: true, length: { maximum: 777 }
 end
