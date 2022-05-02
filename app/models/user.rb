@@ -41,6 +41,8 @@ class User < ApplicationRecord
   validates :uid, uniqueness: { scope: :provider }
   validates :username, length: { maximum: 14 }, format: { with: /\A[a-zA-Z0-9_]+\z/ }, presence: true
 
+  has_many :posts, dependent: :destroy
+
   before_validation :init_uid
 
   def full_name
