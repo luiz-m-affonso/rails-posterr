@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   ExceptionHunter.routes(self)
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1, defaults: { format: :json } do
       get :status, to: 'api#status'
+
+      get :home, to: 'api#index'
+
+      resources :posts
 
       devise_scope :user do
         resource :user, only: %i[update show]
