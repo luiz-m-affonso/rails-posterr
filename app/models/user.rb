@@ -65,6 +65,10 @@ class User < ApplicationRecord
     end
   end
 
+  def posts_from_user_at_day
+    Post.where(user_id: user.id, created_at: Time.zone.now.beginning_of_day..Time.zone.now)
+  end
+
   private
 
   def init_uid
