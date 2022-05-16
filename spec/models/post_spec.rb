@@ -18,5 +18,12 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:subject) { build(:post, user_id: 1) }
+  let(:user) { create(:user, id: 1) }
+
+  describe 'validations and associations' do
+    it { should validate_presence_of(:text) }
+    it { should validate_length_of(:text).is_at_most(777) }
+    it { should belong_to(:user) }
+  end
 end
