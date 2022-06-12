@@ -15,6 +15,9 @@ module Messaging
           @post_factory = post_factory
           @publisher = publisher
         end
+
+        def execute(post_data:, author:)
+        end
       end
     end
   end
