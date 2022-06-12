@@ -9,6 +9,12 @@ module Messaging
             publisher: EventManager::Publisher.instance
           )
         end
+
+        def initialize(all_posts:, post_factory:, publisher:)
+          @all_posts = all_posts
+          @post_factory = post_factory
+          @publisher = publisher
+        end
       end
     end
   end
