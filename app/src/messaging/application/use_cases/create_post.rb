@@ -19,6 +19,11 @@ module Messaging
         def execute(post_data:, author:)
           publish_initialize_post_creation(author: author)
           post = @post_factory.build_from_hash(post_data: post_data)
+          @all_posts.save!(post: post)
+          publish_post_created_event(post: post, author: author)
+          post
+        rescue => e
+          raise_post_create_exception(post: post, exception: e.message)
         end
       end
     end
