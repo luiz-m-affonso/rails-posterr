@@ -17,6 +17,7 @@ module Messaging
         end
 
         def execute(post_data:, author:)
+          publish_initialize_post_creation(author: author)
         end
       end
     end
