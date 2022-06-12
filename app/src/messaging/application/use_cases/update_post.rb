@@ -27,6 +27,17 @@ module Messaging
             raise_update_post_exception(post: post, message: e.message)
           end
         end
+
+        private
+
+        def raise_update_post_exception(post:, message:)
+          raise Exceptions::UpdatePostException.new(post: post, message: message)
+        end
+
+        def publish_post_updated_event(post:, author:)
+          event = Messaging::Events::PostUpdated.new(post: post, author: author)
+          @publisher.publish(event)
+        end
       end
     end
   end
