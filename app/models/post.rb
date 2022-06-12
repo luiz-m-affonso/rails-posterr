@@ -20,7 +20,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   validates :text, presence: true, length: { maximum: 777 }
-  validate :user_post_limit, on: :create
+  # validate :user_post_limit, on: :create
 
   def initilize(id:, title:, description:, text:, type:, user_id:)
     @user_id = id
