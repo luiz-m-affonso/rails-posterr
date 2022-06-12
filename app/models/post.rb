@@ -33,9 +33,9 @@ class Post < ApplicationRecord
 
   private
 
-  def user_post_limit
-    return unless user.today.count >= 5
+  # def user_post_limit
+  #   return unless user.today.count >= 5
 
-    errors.add(:base, 'You have reached your daily post limit')
-  end
+  #   errors.add(:base, 'You have reached your daily post limit')
+  # end
 end
