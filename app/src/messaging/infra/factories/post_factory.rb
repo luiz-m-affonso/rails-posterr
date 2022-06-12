@@ -20,6 +20,16 @@ module Messaging
             user_id: post.user_id
           )
         end
+
+        def build_from_hash(post_data:, user:)
+          Messaging::Domain::Post.new(
+            title: post_data['title'],
+            description: post_data['description'],
+            text: post_data['text'],
+            type: post_data['type'],
+            user_id: user.id
+          )
+        end
       end
     end
   end
