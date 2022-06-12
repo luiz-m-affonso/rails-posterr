@@ -21,6 +21,17 @@ module Messaging
         rescue Exceptions::PostDeleteException => e
           raise_post_delete_exception(post: post, exception: e)
         end
+
+        private
+
+        def raise_post_delete_exception(post:, exception:)
+          raise Exceptions::PostDeleteException.new(post, exception.message)
+        end
+
+        def publish_post_deleted_event(post:, author:)
+          event = Messaging::Events::PostDeleted.new(post: post, author: author)
+          @publisher.publish(event)
+        end
       end
     end
   end
