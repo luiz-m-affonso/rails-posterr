@@ -30,6 +30,12 @@ module Messaging
             user_id: user.id
           )
         end
+
+        def build_from_model_list(posts:)
+          posts.map do |post|
+            build_from_model(post: post)
+          end
+        end
       end
     end
   end
