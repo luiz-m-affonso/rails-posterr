@@ -17,7 +17,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Post, type: :model do
+RSpec.describe Post, type: :model, skip: true do
   let(:subject) { build(:post, user_id: 1) }
   let(:user) { create(:user, id: 1) }
 
