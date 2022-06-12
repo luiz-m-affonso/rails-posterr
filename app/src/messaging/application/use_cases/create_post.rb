@@ -18,6 +18,7 @@ module Messaging
 
         def execute(post_data:, author:)
           publish_initialize_post_creation(author: author)
+          post = @post_factory.build_from_hash(post_data: post_data)
         end
       end
     end
